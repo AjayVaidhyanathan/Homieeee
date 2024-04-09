@@ -105,7 +105,7 @@ class _FindFriendsState extends State<FindFriends> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      _controller.moveCamera(CameraUpdate.newLatLng(_contacts[index]["position"]));
+                     // _controller.moveCamera(CameraUpdate.newLatLng(_contacts[index]["position"]));
                     },
                     child: Container(
                       width: 100,

@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_maps_flutter: ^2.6.0
   custom_info_window: ^1.0.1
+  flutter_config: ^2.0.2
   
 
 dev_dependencies:
