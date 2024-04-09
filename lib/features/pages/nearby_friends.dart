@@ -74,7 +74,7 @@ class _FindFriendsState extends State<FindFriends> {
 
   @override
   Widget build(BuildContext context) {
-    createMarkers(context);
+    
 
     return Scaffold(
       body: Stack(
@@ -86,6 +86,7 @@ class _FindFriendsState extends State<FindFriends> {
             onMapCreated: (GoogleMapController controller) {
               _controller = controller;
               controller.setMapStyle(MapStyle().aubergine);
+              createMarkers(context);
             },
           ),
           Positioned(
@@ -105,7 +106,7 @@ class _FindFriendsState extends State<FindFriends> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                     // _controller.moveCamera(CameraUpdate.newLatLng(_contacts[index]["position"]));
+                     _controller.moveCamera(CameraUpdate.newLatLng(_contacts[index]["position"]));
                     },
                     child: Container(
                       width: 100,

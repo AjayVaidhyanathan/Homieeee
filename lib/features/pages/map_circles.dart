@@ -11,10 +11,10 @@ class MapCircles extends StatefulWidget {
 
 class _MapCirclesState extends State<MapCircles> {
   GoogleMapController? _controller;
-  Set<Circle> _circles = Set<Circle>();
+  final Set<Circle> _circles = Set<Circle>();
 
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: const LatLng(37.42796133580664, -122.085749655962),
     zoom: 14.4746,
   );
   
@@ -27,7 +27,7 @@ class _MapCirclesState extends State<MapCircles> {
         onLongPress: (LatLng latLng) {
           setState(() {
             _circles.add(Circle(
-              circleId: CircleId('red'),
+              circleId: const CircleId('red'),
               center: latLng,
               radius: 300,
               fillColor: Colors.red.shade500.withOpacity(.5),
@@ -39,7 +39,7 @@ class _MapCirclesState extends State<MapCircles> {
         onTap: (LatLng latLng) {
           _circles.add(Circle(
             consumeTapEvents: true,
-            circleId: CircleId('blue'),
+            circleId: const CircleId('blue'),
             center: latLng,
             radius: 500.0,
             fillColor: Colors.blue.shade500.withOpacity(.5),
