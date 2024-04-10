@@ -7,7 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homieeee/features/style/map_style.dart';
 
 class FindFriends extends StatefulWidget {
-  const FindFriends({ super.key });
+  const FindFriends({super.key});
 
   @override
   _FindFriendsState createState() => _FindFriendsState();
@@ -74,39 +74,36 @@ class _FindFriendsState extends State<FindFriends> {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
-      body: Stack(
-        children: [
-          GoogleMap(
-            initialCameraPosition: _kGooglePlex,
-            markers: _markers,
-            myLocationButtonEnabled: false,
-            onMapCreated: (GoogleMapController controller) {
-              _controller = controller;
-              controller.setMapStyle(MapStyle().aubergine);
-              createMarkers(context);
-            },
-          ),
-          Positioned(
-            bottom: 50,
-            left: 20,
-            right: 20,
-            child: Container(
+        body: Stack(
+      children: [
+        GoogleMap(
+          initialCameraPosition: _kGooglePlex,
+          markers: _markers,
+          myLocationButtonEnabled: false,
+          onMapCreated: (GoogleMapController controller) {
+            _controller = controller;
+            controller.setMapStyle(MapStyle().aubergine);
+            createMarkers(context);
+          },
+        ),
+        Positioned(
+          bottom: 50,
+          left: 20,
+          right: 20,
+          child: Container(
               width: MediaQuery.of(context).size.width,
               height: 120,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20)
-              ),
+                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: _contacts.length, 
+                itemCount: _contacts.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                     _controller.moveCamera(CameraUpdate.newLatLng(_contacts[index]["position"]));
+                      _controller.moveCamera(
+                          CameraUpdate.newLatLng(_contacts[index]["position"]));
                     },
                     child: Container(
                       width: 100,
@@ -115,20 +112,28 @@ class _FindFriendsState extends State<FindFriends> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(_contacts[index]['image'], width: 60,),
-                          const SizedBox(height: 10,),
-                          Text(_contacts[index]["name"], style: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),)
+                          Image.asset(
+                            _contacts[index]['image'],
+                            width: 60,
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            _contacts[index]["name"],
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600),
+                          )
                         ],
                       ),
                     ),
                   );
                 },
-              )
-            ),
-          )
-        ],
-      )
-    );
+              )),
+        )
+      ],
+    ));
   }
 
   createMarkers(BuildContext context) {
@@ -138,7 +143,8 @@ class _FindFriendsState extends State<FindFriends> {
       marker = Marker(
         markerId: MarkerId(contact['name']),
         position: contact['position'],
-        icon: await _getAssetIcon(context, contact['marker']).then((value) => value),
+        icon: await _getAssetIcon(context, contact['marker'])
+            .then((value) => value),
         infoWindow: InfoWindow(
           title: contact['name'],
           snippet: 'Street 6 . 2min ago',
@@ -151,18 +157,22 @@ class _FindFriendsState extends State<FindFriends> {
     });
   }
 
-  Future<BitmapDescriptor> _getAssetIcon(BuildContext context, String icon) async {
-    final Completer<BitmapDescriptor> bitmapIcon = Completer<BitmapDescriptor>();
-    final ImageConfiguration config = createLocalImageConfiguration(context, size: const Size(5, 5));
+  Future<BitmapDescriptor> _getAssetIcon(
+      BuildContext context, String icon) async {
+    final Completer<BitmapDescriptor> bitmapIcon =
+        Completer<BitmapDescriptor>();
+    final ImageConfiguration config =
+        createLocalImageConfiguration(context, size: const Size(5, 5));
 
     AssetImage(icon)
-      .resolve(config)
-      .addListener(ImageStreamListener((ImageInfo image, bool sync) async {
-        final ByteData? bytes = await image.image.toByteData(format: ImageByteFormat.png);
-        final BitmapDescriptor bitmap = BitmapDescriptor.fromBytes(bytes!.buffer.asUint8List());
-        bitmapIcon.complete(bitmap);
-      })
-    );
+        .resolve(config)
+        .addListener(ImageStreamListener((ImageInfo image, bool sync) async {
+      final ByteData? bytes =
+          await image.image.toByteData(format: ImageByteFormat.png);
+      final BitmapDescriptor bitmap =
+          BitmapDescriptor.fromBytes(bytes!.buffer.asUint8List());
+      bitmapIcon.complete(bitmap);
+    }));
 
     return await bitmapIcon.future;
   }
