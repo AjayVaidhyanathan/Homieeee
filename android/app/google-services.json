@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "621957741126",
+    "project_id": "sonic-earth-418705",
+    "storage_bucket": "sonic-earth-418705.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621957741126:android:069147e93eb179a2f46847",
+        "android_client_info": {
+          "package_name": "com.homieeee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621957741126-hgr87d4jq6sh6vsvun1t1pa77fge5rhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWJoJVtPiWNFpbOs5vgH66DhzUQ11ANsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621957741126-hgr87d4jq6sh6vsvun1t1pa77fge5rhv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "621957741126-1hc7tdtcptnp0nhj66qntl8f7jlmjlvg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.homieeee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

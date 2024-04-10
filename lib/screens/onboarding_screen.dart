@@ -48,7 +48,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
             ],
           ),
-          OnBoardingSkip(),
+          const OnBoardingSkip(),
           Container(
             alignment: const Alignment(0, 0.75),
             child: SmoothPageIndicator(
@@ -58,7 +58,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               effect: const WormEffect(activeDotColor: HColors.white, dotHeight: 10),
             ),
           ),
-          OnboardingNextPage()
+          const OnboardingNextPage()
         ],
       ),
     );
