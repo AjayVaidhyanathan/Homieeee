@@ -1,8 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:homieeee/screens/home_screen.dart';
-import 'package:homieeee/screens/login_screen.dart';
+import 'package:homieeee/widgets/nav_bar.dart';
+import 'package:homieeee/screens/authentication/login_screen.dart';
 
 class AuthService {
   static SnackBar customSnackBar({required String content}) {
@@ -39,7 +41,7 @@ class AuthService {
         user = userCredential.user;
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen(email: '${user!.displayName}',)),
+          MaterialPageRoute(builder: (context) => const AppBottomNavigationBar(),)
         );
 
         
@@ -72,7 +74,6 @@ class AuthService {
   signOut({required BuildContext context}) async {
     try {
       await FirebaseAuth.instance.signOut();
-      print('Signed Out');
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const LoginScreen()),

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:homieeee/auth/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.email});
+  const HomeScreen({super.key, this.email});
 
-  final String email;
+  final String? email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
