@@ -36,18 +36,36 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   shared_preferences: ^2.2.3
+  flutter_config: ^2.0.2
+  custom_info_window: ^1.0.1
+  google_maps_flutter: ^2.6.0
+  sizer: ^2.0.15
+  image_picker: ^1.1.0
+  jiffy: ^6.3.0
+  flutter_rating_bar: ^4.0.1
+  awesome_dialog: ^3.2.0
 
+  #Packages for QR code scanner and generator
+  qr_flutter: ^4.1.0
   #Packages for UI/UX designs
   flutter_native_splash: ^2.4.0
   flutter_launcher_icons: ^0.13.1
   smooth_page_indicator: ^1.1.0
   flutter_signin_button: ^2.0.0
   google_nav_bar: ^5.0.6
+  flutter_chat_bubble: ^2.0.2
+  uuid: ^4.4.0
+  video_player: ^2.8.6
 
   #Firebase & Google packages to handle database and API functions
   firebase_core: ^2.29.0
   firebase_auth: ^4.19.1
   google_sign_in: ^6.2.1
+  firebase_storage: ^11.7.2
+  cloud_firestore: ^4.16.0
+  geocoding: ^3.0.0
+  flutter_riverpod: ^2.5.1
+  provider: ^6.1.2
 
   get: ^4.6.6
 
@@ -62,14 +80,14 @@ flutter_launcher_icons:
 flutter_native_splash: 
   color: "#FFFFFF"
   color_dark: "#272727"
-  image: assets/logos/Logo_light.png
-  image_dark: assets/logos/Logo_dark.png
+  image: assets/logos/3.png
+  image_dark: assets/logos/3.png
 
   android_12:
     color: "#FFFFFF"
     color_dark: "#272727"
-    image: assets/logos/Logo_light.png
-    image_dark: assets/logos/Logo_dark.png
+    image: assets/logos/3.png
+    image_dark: assets/logos/3.png
   web: false
 
 
@@ -99,6 +117,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/images/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

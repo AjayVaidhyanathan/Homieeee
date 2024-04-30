@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homieeee/auth/auth_service.dart';
+import 'package:homieeee/widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, this.email});
@@ -8,20 +9,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Hello $email'),
-            ElevatedButton(
+      appBar: AppBar(
+        title: const Text('Homepage'),
+        actions: [
+          IconButton(
               onPressed: () async {
                 await AuthService().signOut(context: context);
               },
-              child: const Text('Sign out'),
-            )
-          ],
-        ),
+              icon: const Icon(Icons.exit_to_app))
+        ],
       ),
+      body: ProductContainer()
     );
   }
 }

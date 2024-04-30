@@ -12,25 +12,24 @@ class OnboardingController extends GetxController {
   void updatePageIndicator(index) => currentPageIndex.value = index;
 
   // jump to the specific dot selected page
-  void dotNavigationClick(index){
+  void dotNavigationClick(index) {
     currentPageIndex.value = index;
     pageController.jumpTo(index);
   }
 
   // update current Index & jump to next page
-  void nextPage(){
-    if(currentPageIndex.value == 2){ 
+  void nextPage() {
+    if (currentPageIndex.value == 2) {
       Get.offAll(const AuthGate());
-    } else  { 
-      int page = currentPageIndex.value +1;
+    } else {
+      int page = currentPageIndex.value + 1;
       pageController.jumpToPage(page);
-    } 
-  } 
+    }
+  }
 
   // update current Index & jump to last page
-  void skipPage(){
+  void skipPage() {
     currentPageIndex.value = 2;
     pageController.jumpToPage(2);
   }
-  
 }
